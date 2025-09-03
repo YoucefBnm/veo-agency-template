@@ -1,5 +1,4 @@
 import { About } from "@/sections/about";
-// import { Work } from "@/sections/work";
 import { Process } from "@/sections/process";
 import { Hero } from "@/sections/hero";
 import { Services } from "@/sections/services";
@@ -11,7 +10,6 @@ export default function Home() {
     <>
         <Hero />
         <About />
-        {/* <Work /> */}
         <Services />
         <Team />
         <Process />

@@ -42,11 +42,11 @@ export function Services() {
             key={service.id}
             index={index}
             className="min-h-[50vh] py-8 px-12 flex flex-wrap md:flex-nowrap md:gap-8 justify-between items-start even:border bg-card odd:bg-muted"
-            incrementY={140}
-            incrementZ={5}
+            incrementY={120}
+            incrementZ={0}
           >
             <div className="flex items-start gap-2">
-                <sup className="font-bold text-muted-foreground">{index+1}</sup>
+                <sup className="font-black text-muted-foreground">{index+1}</sup>
                 <h3 className="text-5xl max-w-[13ch] font-bold">{service.title}</h3>
             </div>
 

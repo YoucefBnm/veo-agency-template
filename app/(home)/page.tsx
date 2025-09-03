@@ -1,6 +1,6 @@
 import { About } from "@/sections/about";
-import { Cta } from "@/sections/cta";
-import { Features } from "@/sections/features";
+import { Work } from "@/sections/work";
+import { Process } from "@/sections/process";
 import { Hero } from "@/sections/hero";
 import { Services } from "@/sections/services";
 import { Team } from "@/sections/team";
@@ -11,11 +11,11 @@ export default function Home() {
     <>
         <Hero />
         <About />
-        <Team />
+        <Work />
         <Services />
-        <Features />
+        <Team />
+        <Process />
         <Testimonials />
-        <Cta />
     </>
   );
 }

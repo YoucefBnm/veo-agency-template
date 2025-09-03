@@ -33,7 +33,7 @@ export function Process() {
         <section className="relative py-12 px-8">
             <div className="container mx-auto md:grid md:grid-cols-2 md:gap-12 justify-between">
                 <div className="relative md:sticky md:top-0 md:left-0 h-fit max-h-vh py-6">
-                <ScrollAnimation spacerClass="h-0" className="space-y-4">
+                <ScrollAnimation spacerClass="h-0" className="overflow-hidden space-y-4">
                         <ScrollScale inputRange={[0, 0.2]} scaleRange={[1, 1.6]} className="origin-left">
                             <h2 className="text-5xl md:text-6xl font-extrabold">How we <br /> work</h2>
                         </ScrollScale>

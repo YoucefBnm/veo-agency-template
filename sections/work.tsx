@@ -7,25 +7,25 @@ import Image from "next/image";
 const WORK_PROJECTS = [
     {
       id: 'work-project-3',
-      title: 'YCF DEV',
-      services: ['Portfolio', 'Partnership', 'UI UX Design'],
+      title: 'BMW',
+      services: ['Branding', 'Strategy'],
       imageUrl:
-      'https://images.unsplash.com/photo-1607799279861-4dd421887fb3?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      'https://images.pexels.com/photos/7585399/pexels-photo-7585399.jpeg',
 
     },
     {
       id: 'work-project-2',
-      title: 'Marketing Agency',
-      services: ['Partnership', 'UI UX Design', 'Development'],
+      title: 'NBA',
+      services: ['Market Research', 'Strategy'],
       imageUrl:
-      'https://images.unsplash.com/photo-1683803055067-1ca1c17cb2b9?q=80&w=2342&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      'https://images.pexels.com/photos/1293265/pexels-photo-1293265.jpeg',
     },
     {
       id: 'work-project-1',
-      title: 'Stridath Ecommerce',
-      services: ['E-Commerce', 'Branding', 'UI UX Design', 'Development'],
+      title: 'ROLEX',
+      services: ['Branding', 'Identity'],
       imageUrl:
-        'https://images.unsplash.com/photo-1688561807440-8a57dfa77ee3?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'    },
+        'https://images.pexels.com/photos/364822/rolex-watch-time-luxury-364822.jpeg'    },
   ];
   
 
@@ -46,38 +46,38 @@ export function Work() {
                 </div>
 
                 <CardsStackContainer className="min-h-[300vh] flex flex-col items-center gap-16">
-        {WORK_PROJECTS.map((project, index) => (
-          <CardSticky
-            key={project.id}
-            index={index}
-            incrementY={10}
-            incrementZ={10}
-            className="md:w-4/5 mx-auto bg-card border"
-          >
-          
-           <div className="max-h-[80vh] aspect-video">
-           <Image
-           className="w-full max-h-full"
-              width={906}
-              height={604}
-              src={project.imageUrl}
-              alt="project"
-            />
-           </div>
-              <div className="flex flex-wrap items-center justify-between gap-4 p-6">
-              <h2 className="text-4xl font-bold">
-                {project.title}
-              </h2>
-              <div className="flex flex-wrap gap-1">
-                {project.services.map((service) => (
-                  <Badge variant={'outline'} key={service}>
-                    {service}
-                  </Badge>
+                {WORK_PROJECTS.map((project, index) => (
+                  <CardSticky
+                    key={project.id}
+                    index={index}
+                    incrementY={10}
+                    incrementZ={10}
+                    className="md:w-4/5 mx-auto bg-card border"
+                  >
+                  
+                  <div className="max-h-[80vh] aspect-video">
+                  <Image
+                    className="w-full max-h-full"
+                    width={906}
+                    height={604}
+                    src={project.imageUrl}
+                    alt="project"
+                  />
+                  </div>
+                      <div className="flex flex-wrap items-center justify-between gap-4 p-6">
+                      <h2 className="text-4xl font-bold">
+                        {project.title}
+                      </h2>
+                      <div className="flex flex-wrap gap-1">
+                        {project.services.map((service) => (
+                          <Badge variant={'outline'} key={service}>
+                            {service}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  </CardSticky>
                 ))}
-              </div>
-            </div>
-          </CardSticky>
-        ))}
       </CardsStackContainer>
         </section>
     )

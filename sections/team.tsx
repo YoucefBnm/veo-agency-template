@@ -76,7 +76,7 @@ return (
         <section>
             <ScrollAnimation>
                 <ScrollTranslateY className="overflow-hidden min-h-svh flex flex-col justify-center items-center gap-6">
-                    <div className="max-w-full overflow-hidden">
+                    <div className="max-w-full">
                     <ScrollTranslateX xRange={["-200%", "0%"]} inputRange={[0.4, 0.9]} className="origin-bottom flex flex-nowrap gap-4">
                         {TEAM_MEMBERS.map((member, index) => (
                             <TeamCard className="min-w-[48vw] md:min-w-[20vw] bg-card border" key={index} member={member} />
@@ -84,9 +84,9 @@ return (
                     </ScrollTranslateX>
                     </div>
                     <ScrollScale inputRange={[0, 0.5]} scaleRange={[1.4, 1]} className="w-10/12 flex flex-col justify-center text-center items-center mx-auto origin-center">
-                        <h2 className="text-4xl md:text-5xl font-bold">Compact team of <span className="text-primary">strategists</span></h2>
+                        <h2 className="text-4xl md:text-5xl font-bold">Compact team of strategists</h2>
                     </ScrollScale>
-                    <div className="max-w-full overflow-hidden">
+                    <div className="max-w-full">
                     <ScrollTranslateX inputRange={[0.4, 0.9]} xRange={["100%", "-50%"]} className="flex flex-nowrap gap-4">
                         {TEAM_MEMBERS.map((member, index) => (
                             <TeamCard className="min-w-[48vw] md:min-w-[20vw] bg-card border" key={index} member={member} />

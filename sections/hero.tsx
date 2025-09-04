@@ -15,11 +15,13 @@ export function Hero() {
     className="text-5xl font-extralight"
     variants={animationVariants}
   >
-    <Badge variant='outline' className="py-2 px-4">
-    <div className="relative flex h-2 w-2">
-      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary/50"></span><span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span></div>
-      New Systaliko UI template ✨ completly free and open source 🚀
-      </Badge>
+     <a target="_blank"  href="https://systaliko-ui.vercel.app/docs/templates/veo">
+      <Badge variant='outline' className="py-2 px-4">
+      <div className="relative flex h-2 w-2">
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary/50"></span><span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span></div>
+        New <strong>Systaliko UI</strong> template available - Veo agency ✨ 
+        </Badge>
+      </a>
   </motion.div>
 
   <TextStaggerInview animation='bottom' as='h1' 

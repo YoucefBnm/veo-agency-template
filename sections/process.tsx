@@ -47,7 +47,7 @@ export function Process() {
                         PROCESS_PHASES.map((phase) => 
                             <div className="flex flex-col gap-6" key={phase.id}>
                                 <div className="flex ">
-                                    <h3 className="text-4xl font-bold">{phase.title}</h3>
+                                    <h3 className="text-4xl font-bold mr-2">{phase.title}</h3>
                                     <span className="font-black text-muted-foreground">{phase.duration}</span>
                                 </div>
                                 <p className="">

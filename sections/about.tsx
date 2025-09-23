@@ -1,14 +1,19 @@
-import { TextStaggerInview } from "@/components/systaliko-ui/text/text-stagger-inview";
+import { TextStaggerInview } from '@/components/systaliko-ui/text/text-stagger-inview';
+import { Badge } from '@/components/ui/badge';
 
-
-export function About () {
-return (
-    <section className="py-16 px-8">
-        <div className="max-w-3xl mx-auto space-y-6 ">
-            <h3 className="text-nowrap mt-1 text-xs font-medium uppercase tracking-wide text-primary">/ our story</h3>
-            <TextStaggerInview stagger={0.005} className="text-xl leading-relaxed">
-            Focused, strategy-led studio that marries brand thinking with product design and frontend engineering to build digital experiences people remember. We start with research to find what matters, design clear, usable interfaces, and ship performant, accessible front-ends you can iterate on. Small team, senior talent, measurable outcomes — fewer rewrites, faster launches, and products that actually move the needle.
-            </TextStaggerInview>
-        </div>
+export function About() {
+  return (
+    <section className="py-16 px-8 min-h-screen place-content-center">
+      <div className="flex flex-col space-y-4 justify-center items-center max-w-3xl mx-auto text-center">
+        <h3 className="font-semibold text-muted-foreground text-sm">
+          Empower brands to create exceptional digital
+        </h3>
+        <TextStaggerInview stagger={0.01} className="text-2xl leading-relaxed">
+          Focused strategy led studio that marries brand thinking with product
+          design and frontend engineering to build digital experiences people
+          remember.
+        </TextStaggerInview>
+      </div>
     </section>
-)}
+  );
+}

@@ -21,7 +21,7 @@ export const ContainerStagger = React.forwardRef<
       transition,
       ...props
     },
-    ref,
+    ref
   ) => {
     return (
       <motion.div
@@ -39,6 +39,6 @@ export const ContainerStagger = React.forwardRef<
         {...props}
       />
     );
-  },
+  }
 );
 ContainerStagger.displayName = 'ContainerStagger';

@@ -10,7 +10,7 @@ export function Hero() {
   return (
     <section className="min-h-[90vh] w-full relative place-content-center">
       <ContainerStagger className="flex flex-col text-center items-center gap-6 p-6">
-        <MotionConfig transition={{ duration: 0.3, ease: 'easeOut' }}>
+        <MotionConfig transition={{ duration: 0.4, ease: 'easeOut' }}>
           <motion.div
             className="text-5xl font-extralight"
             variants={animationVariants}

@@ -37,8 +37,8 @@ const VALUES = [
 export function Values() {
   const variants = ANIMATION_VARIANTS['right'];
   return (
-    <section className="pt-12 pb-16 px-8">
-      <div className="lg:grid lg:grid-cols-3 space-y-8">
+    <section className="overflow-hidden">
+      <div className="pt-12 pb-16 px-8 lg:grid lg:grid-cols-3 space-y-8">
         <div className="space-y-4">
           <TextStaggerInview
             as="h2"
@@ -47,7 +47,7 @@ export function Values() {
           >
             Bold brands, Beautiful products for Real growth
           </TextStaggerInview>
-          <Button>Request demo</Button>
+          <Button variant={'link'}>Request demo</Button>
         </div>
         <ContainerStagger
           className="

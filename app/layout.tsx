@@ -4,8 +4,8 @@ import './globals.css';
 import { Analytics } from '@vercel/analytics/next';
 import { data } from '@/data/data';
 import { ThemeProvider } from '@/providers/theme-provider';
-import { Header } from '@/sections/header';
-import { Footer } from '@/sections/footer';
+import { Header } from '@/components/sections/header';
+import { Footer } from '@/components/sections/footer';
 
 const fontSans = Plus_Jakarta_Sans({
   variable: '--font-sans',

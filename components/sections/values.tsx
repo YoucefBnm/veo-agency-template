@@ -1,7 +1,7 @@
 'use client';
-import { ContainerStagger } from '@/components/systaliko-ui/blocks/container-stagger';
+import { ContainerStagger } from '@/components/systaliko-ui/container-stagger';
 import { TextStaggerInview } from '@/components/systaliko-ui/text/text-stagger-inview';
-import { ANIMATION_VARIANTS } from '@/components/systaliko-ui/utils/animation-variants';
+import { ANIMATION_VARIANTS } from '@/components/systaliko-ui/animation-variants';
 import { Button } from '@/components/ui/button';
 import { Axis3dIcon, Building2Icon, ListStartIcon } from 'lucide-react';
 import { stagger } from 'motion';

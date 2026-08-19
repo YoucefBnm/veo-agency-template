@@ -1,7 +1,7 @@
 import {
   ScrollAnimation,
   ScrollScale,
-} from '@/components/systaliko-ui/blocks/scroll-animation';
+} from '@/components/systaliko-ui/scroll-animation';
 import { Button } from '@/components/ui/button';
 
 const PROCESS_PHASES = [

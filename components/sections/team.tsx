@@ -1,0 +1,147 @@
+import {
+  ScrollAnimation,
+  ScrollScale,
+  ScrollTranslateX,
+  ScrollTranslateY,
+} from '@/components/systaliko-ui/scroll-animation';
+import { cn } from '@/lib/utils';
+import Image from 'next/image';
+import React from 'react';
+
+interface TeamMember {
+  avatar: string;
+  name: string;
+  role: string;
+}
+
+const TEAM_MEMBERS: TeamMember[] = [
+  {
+    avatar:
+      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=180&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fHww',
+    name: 'Magdalina',
+    role: 'CEO',
+  },
+  {
+    avatar:
+      'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=180&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGVvcGxlfGVufDB8fDB8fHww',
+    name: 'Jamie',
+    role: 'CTO',
+  },
+  {
+    avatar:
+      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=180&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',
+    name: 'Emilio',
+    role: 'CTO',
+  },
+  {
+    avatar:
+      'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=180&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',
+    name: 'Samia',
+    role: 'COO',
+  },
+  {
+    avatar:
+      'https://images.unsplash.com/photo-1522556189639-b150ed9c4330?w=180&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',
+    name: 'Alex',
+    role: 'Engineer',
+  },
+  {
+    avatar:
+      'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=180&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDl8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',
+    name: 'Ema',
+    role: 'Head of Product',
+  },
+  {
+    avatar:
+      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=180&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',
+    name: 'Carlos',
+    role: 'Engineer',
+  },
+  {
+    avatar:
+      'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',
+    name: 'Campos',
+    role: 'Engineer',
+  },
+];
+
+export function TeamCard({
+  member,
+  className,
+  ...props
+}: React.ComponentProps<'div'> & { member: TeamMember }) {
+  return (
+    <div
+      className={cn(
+        'flex gap-6 rounded-3xl p-4 bg-card text-card-foreground  ring ring-ring/10 shadow-2xs',
+        className,
+      )}
+      {...props}
+    >
+      <div className="size-18 brutal-shadow rounded-[8px] overflow-hidden">
+        <img
+          src={member.avatar}
+          alt={member.name}
+          width={180}
+          height={180}
+          className="size-full"
+        />
+      </div>
+
+      <div className="space-y-1 ">
+        <h3 className="font-bold">{member.name}</h3>
+        <p className="text-muted-foreground">{member.role}</p>
+      </div>
+    </div>
+  );
+}
+
+export function Team() {
+  return (
+    <section>
+      <ScrollAnimation>
+        <ScrollTranslateY className="overflow-hidden min-h-svh space-y-12 place-content-center">
+          <div className="max-w-full">
+            <ScrollTranslateX
+              xRange={['-200%', '0%']}
+              inputRange={[0.4, 0.9]}
+              className="origin-bottom flex flex-nowrap gap-4"
+            >
+              {TEAM_MEMBERS.map((member, index) => (
+                <TeamCard
+                  className="min-w-[48vw] md:min-w-[20vw]"
+                  key={index}
+                  member={member}
+                />
+              ))}
+            </ScrollTranslateX>
+          </div>
+          <ScrollScale
+            inputRange={[0, 0.8]}
+            scaleRange={[1.25, 1]}
+            className="w-10/12 flex flex-col justify-center text-center items-center mx-auto origin-center"
+          >
+            <h2 className="text-4xl  font-extrabold">
+              Compact team of strategists
+            </h2>
+          </ScrollScale>
+          <div className="max-w-full">
+            <ScrollTranslateX
+              inputRange={[0.4, 0.9]}
+              xRange={['100%', '-50%']}
+              className="flex flex-nowrap gap-4"
+            >
+              {TEAM_MEMBERS.map((member, index) => (
+                <TeamCard
+                  className="min-w-[48vw] md:min-w-[20vw]"
+                  key={index}
+                  member={member}
+                />
+              ))}
+            </ScrollTranslateX>
+          </div>
+        </ScrollTranslateY>
+      </ScrollAnimation>
+    </section>
+  );
+}

@@ -4,7 +4,6 @@ import './globals.css';
 import { Analytics } from '@vercel/analytics/next';
 import { data } from '@/data/data';
 import { ThemeProvider } from '@/providers/theme-provider';
-import { Header } from '@/components/sections/header';
 import { Footer } from '@/components/sections/footer';
 
 const fontSans = Plus_Jakarta_Sans({
@@ -55,11 +54,8 @@ export default function RootLayout({
           defaultTheme="dark"
           disableTransitionOnChange
         >
-          <Header />
           {children}
-          <Footer />
         </ThemeProvider>
-
         <Analytics />
       </body>
     </html>

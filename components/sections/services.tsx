@@ -55,7 +55,7 @@ export function Services() {
             key={service.id}
             index={index}
             className="min-h-[60vh] py-8 px-12 flex gap-12 justify-between items-start flex-wrap bg-card ring ring-ring/10 rounded-md"
-            incrementY={95}
+            incrementY={80}
             incrementZ={0}
           >
             <div className="space-y-4">
@@ -86,8 +86,8 @@ export function Services() {
               <p className="text-muted-foreground text-balance">
                 {service.description}
               </p>
-              <Button size="sm">
-                See service <ArrowUpRightIcon className="ml-2 h-4 w-4" />
+              <Button variant="secondary" size="sm">
+                Find out more <ArrowUpRightIcon className="ml-2 h-4 w-4" />
               </Button>
             </div>
           </CardSticky>

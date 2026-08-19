@@ -73,12 +73,12 @@ export function TeamCard({
   return (
     <div
       className={cn(
-        'flex gap-6 rounded-2xl p-4 bg-card text-card-foreground  border',
+        'flex gap-6 rounded-3xl p-4 bg-card text-card-foreground  ring ring-ring/10 shadow-2xs',
         className,
       )}
       {...props}
     >
-      <div className="size-20 brutal-shadow rounded-md overflow-hidden ">
+      <div className="size-18 brutal-shadow rounded-[8px] overflow-hidden">
         <img
           src={member.avatar}
           alt={member.name}
@@ -121,7 +121,7 @@ export function Team() {
             scaleRange={[1.25, 1]}
             className="w-10/12 flex flex-col justify-center text-center items-center mx-auto origin-center"
           >
-            <h2 className="text-4xl md:text-5xl font-extrabold">
+            <h2 className="text-4xl  font-extrabold">
               Compact team of strategists
             </h2>
           </ScrollScale>

@@ -2,10 +2,10 @@ import { Marquee } from '@/components/marquee';
 
 export function About() {
   return (
-    <section className="bg-primary text-muted-foreground py-2">
+    <section className="py-2">
       <Marquee className="[--duration:20s] flex gap-4 items-center">
-        <div className="brutal-shadow bg-secondary rounded-full aspect-square size-12 p-0.5">
-          <div className="rounded-full overflow-hidden">
+        <div className="brutal-shadow bg-secondary rounded aspect-square size-12 p-0.5">
+          <div className="rounded-[2px] overflow-hidden">
             <img
               src="/showcase-mac-mockup.png"
               alt="showcase"
@@ -23,8 +23,8 @@ export function About() {
           </h1>
         </div>
 
-        <div className="brutal-shadow bg-secondary rounded-full aspect-square size-12 p-0.5">
-          <div className="rounded-full overflow-hidden">
+        <div className="brutal-shadow bg-secondary rounded aspect-square size-12 p-0.5">
+          <div className="rounded-[2px] overflow-hidden">
             <img
               src="/showcase-phone-mockup.png"
               alt="showcase"

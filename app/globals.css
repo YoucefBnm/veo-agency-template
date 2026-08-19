@@ -211,12 +211,10 @@
 }
 
 @utility brutal-shadow {
-  @apply border-2 border-[var(--shadow-color),var(--ring)];
-
+  border: 2px solid var(--shadow-color, var(--ring));
   box-shadow: var(--shadow-width, 4px) var(--shadow-width, 4px)
     var(--shadow-color, var(--ring));
 }
-
 @theme inline {
   --animate-marquee: marquee var(--duration) infinite linear;
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;

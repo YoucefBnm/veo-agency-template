@@ -1,100 +1,114 @@
-import GithubIcon from "@/components/icons/github-icon";
-import LinkedinIcon from "@/components/icons/linkedin-icon";
-import XIcon from "@/components/icons/x-icon";
-import { Logo } from "@/components/logo";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import GithubIcon from '@/components/icons/github-icon';
+import LinkedinIcon from '@/components/icons/linkedin-icon';
+import XIcon from '@/components/icons/x-icon';
+import { Logo } from '@/components/logo';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 const SOCIAL_LINKS = [
-    {
-        id: 'twitter-social-link',
-        href: 'https://twitter.com/veo',
-        icon: XIcon
-    },
-    {
-        id: 'linkedin-social-link',
-        href: 'https://www.linkedin.com/company/veo',
-        icon: LinkedinIcon
-    },
-    {
-        id: 'github-social-link',
-        href: 'https://github.com/veo',
-        icon: GithubIcon
-    }
-]
+  {
+    id: 'twitter-social-link',
+    href: 'https://twitter.com/veo',
+    icon: XIcon,
+  },
+  {
+    id: 'linkedin-social-link',
+    href: 'https://www.linkedin.com/company/veo',
+    icon: LinkedinIcon,
+  },
+  {
+    id: 'github-social-link',
+    href: 'https://github.com/veo',
+    icon: GithubIcon,
+  },
+];
 const LINKS = [
-    {
-        label: 'Home',
-        href: '/',
-    },
-    {
-        label: 'About',
-        href: '/about',
-    },
-    {
-        label: 'Services',
-        href: '/services',
-    },
-    {
-        label: 'Pricing',
-        href: '/pricing',
-    }
-]
+  {
+    label: 'Home',
+    href: '/',
+  },
+  {
+    label: 'About',
+    href: '/about',
+  },
+  {
+    label: 'Services',
+    href: '/services',
+  },
+  {
+    label: 'Pricing',
+    href: '/pricing',
+  },
+];
+
+function FooterNavigation() {
+  return (
+    <nav className="space-y-4 font-medium">
+      <h3>Sitemap</h3>
+
+      <ul className="space-y-2">
+        {LINKS.map((link) => (
+          <li key={link.label}>
+            <Link
+              className="text-background/75 hover:text-background text-sm"
+              href={link.href}
+            >
+              {link.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
+function FooterCta() {
+  return (
+    <div className="space-y-4">
+      <div className="flex gap-2 items-center">
+        <Logo className="size-6" />
+        <span className="font-bold text-2xl">veo</span>
+      </div>
+      <p className="text-muted text-sm text-balance max-w-[45ch]">
+        Focused strategy led studio that marries brand thinking with product
+        design and frontend engineering to build digital experiences people
+        remember.
+      </p>
+
+      <Button className="brutal-shadow [--shadow-color:#222]">
+        Start your project
+      </Button>
+    </div>
+  );
+}
+
+export function FooterSocials() {
+  return (
+    <div className="space-y-4 ">
+      <h3>Follow us</h3>
+
+      <div className="flex gap-2">
+        <p className="text-primary/75 hover:text-primary font-semibold text-sm uppercase tracking-wide">
+          Linkedin
+        </p>
+
+        <p className="text-primary/75 hover:text-primary font-semibold text-sm uppercase tracking-wide">
+          X
+        </p>
+        <p className="text-primary/75 hover:text-primary font-semibold text-sm uppercase tracking-wide">
+          Github
+        </p>
+      </div>
+    </div>
+  );
+}
 export function Footer() {
-    return (
-        <footer className="py-12 px-8 border-t">
-            <div className="flex w-full justify-between items-center gap-4 flex-wrap">
-                <div className="inline-flex items-center gap-1">
-                    <div className="size-6">
-                        <Logo className="size-full" />
-                    </div>
-                    <span className="inline-block text-lg font-bold">Veo</span>
-                </div>
-                <ul className="flex items-center gap-2">
-                    {
-                        SOCIAL_LINKS.map((link) => (
-                            <li key={link.id}>
-                                <Button variant={'ghost'} size={'icon'}>
-                                    <a href={link.href}>
-                                        <link.icon />
-                                    </a>
-                                </Button>
-                            </li>
-                        ))
-                    }
-                </ul>
-            </div>
-            
-            <div className="flex gap-4 justify-between flex-wrap">
-                <ul className="flex py-4 justify-self-start mt-2 gap-4">
-                    {
-                        LINKS.map((link) => (
-                            <li key={link.label}>
-                                <Link className="text-foreground/50 hover:text-foreground font-medium" href={link.href}>
-                                {link.label}
-                                </Link>
-                            </li>
-                        ))
-                    }
-                </ul>
-
-                 <ul className="flex py-4 justify-self-start mt-2 gap-4">
-                    <li>
-                        <Link className="text-foreground/30 hover:text-foreground font-medium text-sm" href={'/privacy'}>
-                            Privacy
-                        </Link>
-                    </li>
-                    <li>
-                        <Link className="text-foreground/30 hover:text-foreground font-medium text-sm" href={'/terms'}>
-                            Terms
-                        </Link>
-                    </li>
-                </ul>
-            </div>
-
-            <small className="text-muted-foreground">
-                &copy; {new Date().getFullYear()} Veo. created by <a href="https://x.com/lbnm_yussef" className="text-foreground font-medium">@youcefBnm</a>
-            </small>
-        </footer>
-    )
+  return (
+    <footer className="bg-foreground text-background py-12 px-8">
+      <div className="container mx-auto flex flex-wrap justify-between gap-8">
+        <FooterCta />
+        <FooterNavigation />
+        <FooterSocials />
+      </div>
+    </footer>
+  );
 }

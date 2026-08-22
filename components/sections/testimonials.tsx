@@ -82,7 +82,7 @@ function TestimonialCard({
 
       <RatingStars
         rating={rating ?? 5}
-        className="text-primary justify-center"
+        className="text-primary justify-center stroke-ring/40"
       />
       <blockquote>
         <p className="text-muted-foreground">"{quote}"</p>

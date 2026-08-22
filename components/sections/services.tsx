@@ -7,7 +7,7 @@ const SERVICES_CARDS = [
   {
     id: 'service-starategy-identity-service',
     title: 'Brand Strategy & Identity',
-    imageUrl: '/showcase-gt.png',
+    imageUrl: '/showcase-phone-mockup.png',
     description:
       'help teams uncover a clear brand position and translate it into a concise voice and visual system. From naming and messaging to logo systems and brand guidelines.',
     subServices: ['Typography', 'Brand Guidelines', 'Logos', 'Colors'],
@@ -23,7 +23,7 @@ const SERVICES_CARDS = [
   {
     id: 'web-development-service',
     title: 'Web Development',
-    imageUrl: '/showcase-phone-mockup.png',
+    imageUrl: '/carecover-showcase.png',
     description:
       'build modern web products using component-driven development, automated testing, and performance-first best practices. Our code is documented and deliverable-ready.',
     subServices: ['Frontend', 'Backend', 'Database'],

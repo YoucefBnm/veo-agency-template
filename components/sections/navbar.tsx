@@ -14,7 +14,7 @@ import {
   AnimatedMenuItem,
   AnimatedMenuList,
 } from '../systaliko-ui/animated-menu';
-
+import { ModeToggle } from '@/components/mode-toggle';
 const NAV_LINKS = [
   {
     id: 'link-home',
@@ -53,7 +53,7 @@ function DesktopNavigationItem({
 }: HTMLMotionProps<'li'> & { isHoverd: boolean }) {
   return (
     <motion.li
-      className="relative px-4 py-1.5 rounded-[2px] text-sm font-medium bg-background/20"
+      className="relative px-4 py-1.5 rounded-[2px] text-popover dark:text-popover-foreground text-sm font-medium bg-background/20"
       {...props}
     >
       {isHoverd && (
@@ -143,6 +143,7 @@ export function Navbar() {
             Book a meeting
           </Button>
           <MobileNavigation />
+          <ModeToggle />
         </nav>
       </div>
     </Header>

@@ -12,50 +12,52 @@ import { Button } from '@/components/ui/button';
 const animationVariants = ANIMATION_VARIANTS['bottom'];
 const SHOWCASE_ELEMENTS = [
   {
-    label: 'showcase-gt',
-    imageUrl: '/showcase-gt.png',
+    label: 'showcase-gt-hero',
+    image: { url: '/showcase-gt-hero.png', width: 180, height: 120 },
     className: 'hidden md:block top-[10%] left-[-5%] -rotate-15',
   },
   {
-    label: 'showcase-mac-mockup',
-    imageUrl: '/showcase-mac-mockup.png',
-    className: 'bottom-[-10%] left-[10%] -rotate-30',
+    label: 'showcase-breinkhier-locations',
+    image: {
+      url: '/showcase-breinkhier-locations.png',
+      width: 180,
+      height: 110,
+    },
+    className: 'bottom-0 left-[10%] -rotate-30',
   },
   {
     label: 'showcase-phone-mockup',
-    imageUrl: '/showcase-phone-mockup.png',
+    image: { url: '/showcase-phone-mockup.png', width: 180, height: 180 },
     className: 'top-[-15%] left-[40%] -rotate-30',
   },
   {
-    label: 'showcase-breinkhier-locations',
-    imageUrl: '/showcase-breinkhier-locations.png',
+    label: 'showcase-bizadvisor-hero',
+    image: { url: '/showcase-bizadvisor-hero.png', width: 180, height: 180 },
     className: 'hidden md:block top-[-10%] right-[0%] rotate-30',
   },
   {
-    label: 'showcase-bizadvisor-hero',
-    imageUrl: '/showcase-bizadvisor-hero.png',
+    label: 'showcase-stridath-hero',
+    image: { url: '/showcase-stridath-hero.png', width: 180, height: 140 },
     className: 'top-[40%] right-[-5%] -rotate-15',
   },
 ];
 
 function ShowcaseCard({
   label,
-  imageUrl,
+  image,
 }: {
   label: string;
-  imageUrl: string;
+  image: { url: string; width: number; height: number };
 }) {
   return (
-    <div className="size-44 rounded-sm bg-secondary ring ring-ring/5 p-3">
-      <div className="rounded-[6px] border  overflow-hidden">
-        <img
-          className="block object-cover size-full"
-          alt={label}
-          src={imageUrl}
-          width={180}
-          height={180}
-        />
-      </div>
+    <div className="w-40 h-fit rounded border  overflow-hidden">
+      <img
+        className="block object-cover size-full"
+        alt={label}
+        src={image.url}
+        width={image.width}
+        height={image.height}
+      />
     </div>
   );
 }
@@ -106,7 +108,7 @@ function HeroMedia() {
           className={`absolute size-fit ${showcase.className}`}
           key={showcase.label}
         >
-          <ShowcaseCard label={showcase.label} imageUrl={showcase.imageUrl} />
+          <ShowcaseCard label={showcase.label} image={showcase.image} />
         </InfiniteFloatingItem>
       ))}
     </FloatingElements>
@@ -115,7 +117,7 @@ function HeroMedia() {
 export function Hero() {
   return (
     <section className="overflow-x-clip overflow-y-visible">
-      <div className="container mx-auto h-screen w-full grid grid-cols-1 grid-rows-1 *:col-start-1 *:row-start-1 justify-center items-center">
+      <div className="container mx-auto h-screen bg-grid-pattern grid grid-cols-1 grid-rows-1 *:col-start-1 *:row-start-1 justify-center items-center">
         <HeroMedia />
 
         <HeroText />

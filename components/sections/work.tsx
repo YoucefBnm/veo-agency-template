@@ -4,12 +4,12 @@ import {
   ParallaxItem,
 } from '@/components/systaliko-ui/parallax';
 const parallax_item_styles =
-  'max-w-3xs [&_img]:w-full h-fit rounded  brutal-shadow  bg-secondary p-2 overflow-hidden';
+  'max-w-[200px] xl:max-w-3xs [&_img]:w-full h-fit rounded  brutal-shadow  bg-secondary p-2 overflow-hidden';
 export function Work() {
   return (
     <section className="border-b">
-      <Parallax className="container mx-auto  h-[3600px] md:h-[2000px] p-12">
-        <div className="sticky z-2 top-0 mix-blend-difference text-background h-screen place-content-center max-w-fit mx-auto space-y-6">
+      <Parallax className="container mx-auto bg-grid-pattern h-[3600px] md:h-[2000px] p-12">
+        <div className="sticky z-2 top-0 mix-blend-difference text-background dark:text-foreground h-screen place-content-center max-w-fit mx-auto space-y-6">
           <h1 className="text-3xl md:text-4xl  font-extrabold uppercase tracking-wider">
             Brand Strategy
           </h1>

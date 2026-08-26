@@ -23,7 +23,7 @@ export function Header({
   return (
     <motion.header
       className={cn('flex justify-between items-center', className)}
-      animate={isHidden ? { y: '-90%' } : { y: '0%' }}
+      animate={isHidden ? { y: '-105%' } : { y: '0%' }}
       transition={{ duration: 0.4, ease: 'easeOut' }}
       whileHover={{ y: '0%' }}
       onFocusCapture={showHeader}

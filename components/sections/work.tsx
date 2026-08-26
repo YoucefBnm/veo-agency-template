@@ -8,21 +8,21 @@ const parallax_item_styles =
 export function Work() {
   return (
     <section className="border-b">
-      <Parallax className="container mx-auto bg-grid-pattern h-[3600px] md:h-[2000px] p-12">
-        <div className="sticky z-2 top-0 mix-blend-difference text-background dark:text-foreground h-screen place-content-center max-w-fit mx-auto space-y-6">
-          <h1 className="text-3xl md:text-4xl  font-extrabold uppercase tracking-wider">
+      <Parallax className="container mx-auto h-[3600px] md:h-[2000px] p-12">
+        <div className="sticky z-2 top-0 mix-blend-difference text-background dark:text-foreground h-screen place-content-center max-w-fit mx-auto space-y-8">
+          <h1 className="text-3xl md:text-4xl  font-extrabold  tracking-wider">
             Brand Strategy
           </h1>
-          <h1 className="text-3xl md:text-4xl font-extrabold uppercase tracking-wider">
+          <h1 className="text-3xl md:text-4xl font-extrabold  tracking-wider">
             UX & Product Design
           </h1>
-          <h1 className="text-3xl md:text-4xl font-extrabold uppercase tracking-wider">
+          <h1 className="text-3xl md:text-4xl font-extrabold  tracking-wider">
             Web Development
           </h1>
-          <h1 className="text-3xl md:text-4xl font-extrabold uppercase tracking-wider">
+          <h1 className="text-3xl md:text-4xl font-extrabold  tracking-wider">
             Motion & Interaction
           </h1>
-          <h1 className="text-3xl md:text-4xl font-extrabold uppercase tracking-wider">
+          <h1 className="text-3xl md:text-4xl font-extrabold  tracking-wider">
             Content & Copywriting
           </h1>
         </div>

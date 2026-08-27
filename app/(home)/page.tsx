@@ -7,6 +7,7 @@ import { Testimonials } from '@/components/sections/testimonials';
 import { Footer } from '@/components/sections/footer';
 import { Process } from '@/components/sections/process';
 import { Values } from '@/components/sections/values';
+import { Cta } from '@/components/sections/cta';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Values />
+      <Cta />
     </>
   );
 }

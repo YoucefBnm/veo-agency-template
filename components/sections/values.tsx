@@ -1,3 +1,5 @@
+'use client';
+import { useIsMobile } from '@/app/hooks/use-mobile';
 import {
   CircleCard,
   CircleCards,
@@ -49,57 +51,82 @@ function ValueCard({
   description,
 }: Omit<ValueT, 'outputRange' | 'inputRange'>) {
   return (
-    <div className="max-w-xs space-y-12 p-10 rounded-sm border bg-card/80 backdrop-blur text-card-foreground text-center flex flex-col justify-center items-center">
-      <img src={imageUrl} alt={title} width={80} height={80} />
+    <div className="max-w-xs space-y-8 p-8 rounded-sm border bg-card/80 backdrop-blur text-card-foreground text-center flex flex-col justify-center items-center">
+      <div className="size-16">
+        <img src={imageUrl} alt={title} width={80} height={80} />
+      </div>
 
       <div className="space-y-3">
         <h3 className="font-bold text-2xl">{title}</h3>
-        <p className="text-sm text-balance text-muted-foreground">
-          {description}
-        </p>
+        <p className="text-balance text-muted-foreground">{description}</p>
       </div>
     </div>
   );
 }
-export function Values() {
+function ValuesText() {
   return (
-    <section className="relative py-16 max-w-7xl mx-auto">
-      <div className="flex gap-10">
-        <CircleCards className="w-full h-[300vh]" spacerClassName="h-0">
-          <div className="sticky overflow-hidden flex items-center gap-10 top-0 left-0 w-full h-screen">
-            <div className="place-content-center p-8 max-w-md space-y-3">
-              <h2 className="font-bold text-3xl text-balance">
-                Bold brands for beautiful products
-              </h2>
-              <p className="text-sm text-muted-foreground text-balance">
-                Focused strategy led studio that marries brand thinking with
-                product design and frontend engineering to build digital
-                experiences people remember
-              </p>
-              <Button>Discover</Button>
-            </div>
-            {VALUES_CONTENT.map((value, index) => {
-              return (
-                <CircleItem
-                  key={index}
-                  outputRange={value.outputRange}
-                  inputRange={value.inputRange}
-                  className="top-4/6 pointer-events-none"
-                >
-                  <CircleCard>
-                    <ValueCard
-                      id={value.id}
-                      imageUrl={value.imageUrl}
-                      title={value.title}
-                      description={value.description}
-                    />
-                  </CircleCard>
-                </CircleItem>
-              );
-            })}
-          </div>
-        </CircleCards>
+    <div className="place-content-center p-8 max-w-md space-y-3">
+      <h2 className="font-bold text-3xl text-balance">
+        Bold brands for beautiful products
+      </h2>
+      <p className="text-sm text-muted-foreground text-balance">
+        Focused strategy led studio that marries brand thinking with product
+        design and frontend engineering to build digital experiences people
+        remember
+      </p>
+      <Button>Discover</Button>
+    </div>
+  );
+}
+function ValuesMobile() {
+  return (
+    <section className="px-8 py-12 space-y-8 place-items-center">
+      <ValuesText />
+      <div className="space-y-4">
+        {VALUES_CONTENT.map((value) => (
+          <ValueCard
+            key={value.id}
+            id={value.id}
+            imageUrl={value.imageUrl}
+            title={value.title}
+            description={value.description}
+          />
+        ))}
       </div>
     </section>
   );
+}
+function ValuesDesktop() {
+  return (
+    <section className="relative py-16 max-w-7xl mx-auto">
+      <CircleCards className="w-full h-[300vh]" spacerClassName="h-0">
+        <div className="sticky overflow-hidden flex items-center gap-10 top-0 left-0 w-full h-screen">
+          <ValuesText />
+          {VALUES_CONTENT.map((value, index) => {
+            return (
+              <CircleItem
+                key={index}
+                outputRange={value.outputRange}
+                inputRange={value.inputRange}
+                className="top-4/6 pointer-events-none"
+              >
+                <CircleCard>
+                  <ValueCard
+                    id={value.id}
+                    imageUrl={value.imageUrl}
+                    title={value.title}
+                    description={value.description}
+                  />
+                </CircleCard>
+              </CircleItem>
+            );
+          })}
+        </div>
+      </CircleCards>
+    </section>
+  );
+}
+export function Values() {
+  const isMobile = useIsMobile();
+  return isMobile ? <ValuesMobile /> : <ValuesDesktop />;
 }

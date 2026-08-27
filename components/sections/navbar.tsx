@@ -53,7 +53,7 @@ function DesktopNavigationItem({
 }: HTMLMotionProps<'li'> & { isHoverd: boolean }) {
   return (
     <motion.li
-      className="relative px-4 py-1.5 rounded-full text-primary-foreground dark:text-popover-foreground text-sm font-medium "
+      className="relative px-4 py-1.5 rounded-md text-primary-foreground dark:text-popover-foreground text-sm font-medium "
       {...props}
     >
       {isHoverd && (
@@ -134,7 +134,7 @@ function DesktopNavigation() {
 export function Navbar() {
   return (
     <Header className="fixed top-2 left-0 w-full z-999 flex justify-center items-center">
-      <div className="container max-w-3xl h-12 bg-sidebar/20 backdrop-blur-2xl mx-4 px-6 rounded-full ring ring-ring/10 shadow-2xs flex items-center gap-4 justify-between">
+      <div className="container max-w-3xl h-12 bg-sidebar/80 backdrop-blur mx-4 px-4 rounded-xl ring ring-ring/25 shadow-xs flex items-center gap-4 justify-between">
         <NavbarLogo />
 
         <nav className="flex items-center gap-2">

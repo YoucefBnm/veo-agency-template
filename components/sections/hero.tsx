@@ -58,14 +58,14 @@ function HeroText() {
     >
       <MotionConfig transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}>
         <motion.h1
-          className="text-4xl max-w-[22ch] text-balance font-black"
+          className="text-4xl max-w-[22ch] mx-auto text-balance font-extrabold"
           variants={animationVariants}
         >
           We build brands and products people remember
         </motion.h1>
 
         <motion.p
-          className="text-muted-foreground max-w-[45ch] text-balance font-medium mx-auto"
+          className="max-w-[55ch] text-balance font-medium mx-auto"
           variants={animationVariants}
         >
           Crafting exceptional digital experiences through innovative design
@@ -104,15 +104,7 @@ function HeroMedia() {
 }
 export function Hero() {
   return (
-    <section
-      className="overflow-x-clip overflow-y-visible"
-      style={{
-        backgroundImage: `
-          radial-gradient(circle at center, var(--background) 0%, transparent 150%)
-        `,
-        // mixBlendMode: 'multiply',
-      }}
-    >
+    <section className="overflow-x-clip overflow-y-visible">
       <div className="container mx-auto h-screen grid grid-cols-1 grid-rows-1 *:col-start-1 *:row-start-1 justify-center items-center">
         <HeroMedia />
 

@@ -32,7 +32,7 @@ function HeadingLg({
     <motion.h1
       {...props}
       className={cn(
-        'text-6xl xl:text-7xl font-extrabold uppercase origin-bottom-left whitespace-nowrap',
+        'text-5xl xl:text-6xl font-extrabold uppercase origin-bottom-left whitespace-nowrap',
         className,
       )}
       {...props}
@@ -59,8 +59,8 @@ export function ShowcaseDesktop() {
     stiffness: 400,
   });
 
-  const skewVelocity = useTransform(smoothVelocity, [0, 1], [15, -25]);
-  const reversSkeyVelocity = useTransform(smoothVelocity, [0, 1], [-15, 25]);
+  const skewVelocity = useTransform(smoothVelocity, [0, 1], [0, -45]);
+  const reversSkeyVelocity = useTransform(smoothVelocity, [0, 1], [0, 45]);
 
   const translateX = useTransform(scrollYProgress, [0, 1], [0, -800]);
   const reversTranslateX = useTransform(scrollYProgress, [0, 1], [0, 800]);
@@ -72,7 +72,7 @@ export function ShowcaseDesktop() {
   });
 
   return (
-    <Parallax ref={ref} className="h-375 relative">
+    <Parallax ref={ref} className="h-300 relative">
       <div className="sticky top-0 left-0 py-4 min-h-screen space-y-12 place-content-center overflow-hidden">
         {TITLES.map((title, index) => (
           <HeadingLg
@@ -86,17 +86,30 @@ export function ShowcaseDesktop() {
           />
         ))}
       </div>
-      <PrallaxContainer className="flex flex-wrap justify-between gap-4 w-full">
-        <ParallaxItem className="p-4 max-w-62.5" start={200} end={-200}>
-          <img src="/work-cognify.png" width={432} height={520} alt="street" />
+      <PrallaxContainer className="absolute h-screen w-full left-0 bottom-0">
+        <ParallaxItem className="max-w-56 p-4" start={0} end={-300}>
+          <img
+            src="/work-cognify.png"
+            width={432}
+            height={520}
+            alt="showcase"
+          />
         </ParallaxItem>
 
-        <ParallaxItem className="p-4 max-w-62.5" start={500} end={20}>
-          <img src="/work-enera.png" width={432} height={520} alt="street" />
+        <ParallaxItem
+          className="max-w-56 p-4 justify-self-center"
+          start={0}
+          end={-100}
+        >
+          <img src="/work-enera.png" width={432} height={520} alt="showcase" />
         </ParallaxItem>
 
-        <ParallaxItem className="p-4 max-w-62.5" start={800} end={50}>
-          <img src="/work-abla.png" width={432} height={520} alt="street" />
+        <ParallaxItem
+          className="max-w-56 p-4 justify-self-end"
+          start={0}
+          end={-100}
+        >
+          <img src="/work-abla.png" width={432} height={520} alt="showcase" />
         </ParallaxItem>
       </PrallaxContainer>
     </Parallax>

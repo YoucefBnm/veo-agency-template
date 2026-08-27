@@ -4,6 +4,7 @@ import XIcon from '@/components/icons/x-icon';
 import { Logo } from '@/components/logo';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import { Testimonials } from './testimonials';
 
 const SOCIAL_LINKS = [
   {
@@ -44,13 +45,13 @@ const LINKS = [
 function FooterNavigation() {
   return (
     <nav className="space-y-4 font-medium">
-      <h3>Sitemap</h3>
+      <h3 className="font-medium">Sitemap</h3>
 
       <ul className="space-y-2">
         {LINKS.map((link) => (
           <li key={link.label}>
             <Link
-              className="text-background/75 hover:text-background text-sm"
+              className="text-foreground/75 hover:text-foreground text-sm"
               href={link.href}
             >
               {link.label}
@@ -64,17 +65,17 @@ function FooterNavigation() {
 function FooterCta() {
   return (
     <div className="space-y-4">
-      <div className="flex gap-2 items-center">
+      <div className="flex gap-1 items-center">
         <Logo className="size-6" />
-        <span className="font-bold text-2xl">veo</span>
+        <span className="font-bold text-xl">veo</span>
       </div>
-      <p className="text-muted text-sm text-balance max-w-[45ch]">
+      <p className="text-xs text-balance max-w-[45ch]">
         Focused strategy led studio that marries brand thinking with product
         design and frontend engineering to build digital experiences people
         remember.
       </p>
 
-      <Button className="brutal-shadow [--shadow-color:#222]">
+      <Button className="" variant={'secondary'}>
         Start your project
       </Button>
     </div>
@@ -84,30 +85,31 @@ function FooterCta() {
 export function FooterSocials() {
   return (
     <div className="space-y-4 ">
-      <h3>Follow us</h3>
+      <h3 className="font-medium">Follow us</h3>
 
-      <div className="flex gap-2">
-        <p className="text-primary/75 hover:text-primary font-semibold text-sm uppercase tracking-wide">
-          Linkedin
-        </p>
-
-        <p className="text-primary/75 hover:text-primary font-semibold text-sm uppercase tracking-wide">
-          X
-        </p>
-        <p className="text-primary/75 hover:text-primary font-semibold text-sm uppercase tracking-wide">
-          Github
-        </p>
+      <div className="flex items-center opacity-75 hover:opacity-100 gap-2">
+        {SOCIAL_LINKS.map((social) => (
+          <div key={social.id}>
+            <social.icon className="w-4" />
+          </div>
+        ))}
       </div>
     </div>
   );
 }
 export function Footer() {
   return (
-    <footer className="bg-foreground text-background py-12 px-8">
-      <div className="container mx-auto flex flex-wrap justify-between gap-8">
-        <FooterCta />
-        <FooterNavigation />
-        <FooterSocials />
+    <footer className="relative">
+      <Testimonials />
+
+      <div className="py-16 px-8 bg-secondary text-secondary-foreground sticky bottom-0 left-0 w-full h-fit">
+        <div className="container mx-auto flex flex-wrap justify-evenly items-start gap-8">
+          <FooterCta />
+
+          <FooterSocials />
+
+          <FooterNavigation />
+        </div>
       </div>
     </footer>
   );

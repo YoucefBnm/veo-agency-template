@@ -12,13 +12,13 @@ import React from 'react';
 
 const menuListVariants = {
   open: {
-    width: 234,
+    width: 240,
     height: 280,
     transition: { duration: 0.75, ease: [0.76, 0, 0.24, 1] },
   },
   close: {
-    width: 86.5,
-    height: 34.5,
+    width: 80,
+    height: 32,
     transition: { duration: 0.75, delay: 0.2, ease: [0.76, 0, 0.24, 1] },
   },
 } as Variants;

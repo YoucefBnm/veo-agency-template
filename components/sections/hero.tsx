@@ -8,59 +8,47 @@ import {
 } from '@/components/systaliko-ui/floating-elements';
 import { ANIMATION_VARIANTS } from '@/components/systaliko-ui/animation-variants';
 import { Button } from '@/components/ui/button';
+import FigmaIcon from '../icons/figma-icon';
+import CanvasIcon from '../icons/canvas-icon';
+import Webflow from '../icons/webflow-icon';
+import ClaudeIcon from '../icons/claude-icon';
+import FramerIcon from '../icons/framer-icon';
+import GoogleIcon from '../icons/google-icon';
 
 const animationVariants = ANIMATION_VARIANTS['bottom'];
 const SHOWCASE_ELEMENTS = [
   {
-    label: 'showcase-gt-hero',
-    image: { url: '/showcase-gt-hero.png', width: 180, height: 120 },
-    className: 'hidden md:block top-[10%] left-[-5%] -rotate-15',
+    label: 'hero-icon-figma',
+    icon: FigmaIcon,
+    className: '[&>svg]:w-5 top-[10%] left-[10%]',
   },
   {
-    label: 'showcase-breinkhier-locations',
-    image: {
-      url: '/showcase-breinkhier-locations.png',
-      width: 180,
-      height: 110,
-    },
-    className: 'bottom-0 left-[10%] -rotate-30',
+    label: 'hero-icon-canvas',
+    icon: CanvasIcon,
+    className: '[&>svg]:w-12 top-[60%] left-0',
   },
   {
-    label: 'showcase-phone-mockup',
-    image: { url: '/showcase-phone-mockup.png', width: 180, height: 180 },
-    className: 'top-[-15%] left-[40%] -rotate-30',
+    label: 'hero-icon-adobe',
+    icon: Webflow,
+    className: '[&>svg]:w-9 bottom-[5%] left-[40%]',
   },
   {
-    label: 'showcase-bizadvisor-hero',
-    image: { url: '/showcase-bizadvisor-hero.png', width: 180, height: 180 },
-    className: 'hidden md:block top-[-10%] right-[0%] rotate-30',
+    label: 'hero-icon-claude',
+    icon: ClaudeIcon,
+    className: '[&>svg]:w-8 right-0 top-2/3',
   },
   {
-    label: 'showcase-stridath-hero',
-    image: { url: '/showcase-stridath-hero.png', width: 180, height: 140 },
-    className: 'top-[40%] right-[-5%] -rotate-15',
+    label: 'hero-icon-framer',
+    icon: FramerIcon,
+    className: '[&>svg]:w-5 right-0 top-[5%]',
+  },
+  {
+    label: 'hero-icon-google',
+    icon: GoogleIcon,
+    className: '[&>svg]:w-6 right-[10%] top-[40%]',
   },
 ];
 
-function ShowcaseCard({
-  label,
-  image,
-}: {
-  label: string;
-  image: { url: string; width: number; height: number };
-}) {
-  return (
-    <div className="w-40 h-fit rounded border  overflow-hidden">
-      <img
-        className="block object-cover size-full"
-        alt={label}
-        src={image.url}
-        width={image.width}
-        height={image.height}
-      />
-    </div>
-  );
-}
 function HeroText() {
   return (
     <ContainerStagger
@@ -68,16 +56,18 @@ function HeroText() {
       initial="hidden"
       animate="visible"
     >
-      <MotionConfig transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}>
+      <MotionConfig
+        transition={{ type: 'spring', visualDuration: 0.32, bounce: 0.1 }}
+      >
         <motion.h1
-          className="text-4xl max-w-[22ch] text-balance font-black"
+          className="text-4xl max-w-[22ch] mx-auto text-balance font-extrabold"
           variants={animationVariants}
         >
           We build brands and products people remember
         </motion.h1>
 
         <motion.p
-          className="text-muted-foreground max-w-[45ch] text-balance font-medium mx-auto"
+          className="max-w-[55ch] text-balance font-medium mx-auto"
           variants={animationVariants}
         >
           Crafting exceptional digital experiences through innovative design
@@ -102,13 +92,13 @@ function HeroText() {
 
 function HeroMedia() {
   return (
-    <FloatingElements className="size-full relative ">
+    <FloatingElements className="size-full  relative ">
       {SHOWCASE_ELEMENTS.map((showcase) => (
         <InfiniteFloatingItem
-          className={`absolute size-fit ${showcase.className}`}
+          className={`absolute -z-1 size-14 bg-muted ring ring-ring/10 rounded-sm flex items-center justify-center ${showcase.className}`}
           key={showcase.label}
         >
-          <ShowcaseCard label={showcase.label} image={showcase.image} />
+          <showcase.icon />
         </InfiniteFloatingItem>
       ))}
     </FloatingElements>
@@ -117,7 +107,7 @@ function HeroMedia() {
 export function Hero() {
   return (
     <section className="overflow-x-clip overflow-y-visible">
-      <div className="container mx-auto h-screen bg-grid-pattern grid grid-cols-1 grid-rows-1 *:col-start-1 *:row-start-1 justify-center items-center">
+      <div className="container mx-auto h-screen grid grid-cols-1 grid-rows-1 *:col-start-1 *:row-start-1 justify-center items-center">
         <HeroMedia />
 
         <HeroText />

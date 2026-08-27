@@ -41,7 +41,7 @@ const NAV_LINKS = [
 function NavbarLogo() {
   return (
     <Link href="/" className="block p-0.5">
-      <Logo className="size-7" />
+      <Logo className="size-6.5" />
     </Link>
   );
 }
@@ -53,13 +53,13 @@ function DesktopNavigationItem({
 }: HTMLMotionProps<'li'> & { isHoverd: boolean }) {
   return (
     <motion.li
-      className="relative px-4 py-1.5 rounded-[2px] text-popover dark:text-popover-foreground text-sm font-medium bg-background/20"
+      className="relative px-4 py-1.5 rounded-md text-primary-foreground dark:text-popover-foreground text-sm font-medium "
       {...props}
     >
       {isHoverd && (
         <motion.div
           layoutId="navbar-desktop-navigation"
-          className="rounded-[inherit] absolute inset-0 bg-popover"
+          className="rounded-[inherit] absolute inset-0 bg-accent"
           transition={{
             type: 'spring',
             stiffness: 120,
@@ -78,22 +78,22 @@ function DesktopNavigationItem({
 
 function MobileNavigation() {
   return (
-    <AnimatedMenu className="block md:hidden">
+    <AnimatedMenu className="mx-2 block md:hidden">
       <AnimatedMenuButton>
         <AnimatedMenuButtonToggleIcon />
         <AnimatedMenuButtonLabel className="font-semibold" />
       </AnimatedMenuButton>
 
-      <AnimatedMenuList className="bg-popover ring ring-ring/10 shadow-2xs rounded text-popover-foreground flex items-center justify-center">
+      <AnimatedMenuList className="bg-popover ring-2 ring-border shadow-2xs rounded-md text-popover-foreground flex items-center justify-center">
         <div className="*:transition-blur *:duration-300 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none w-full ">
           {NAV_LINKS.map((item, i) => (
             <AnimatedMenuItem
-              className="size-full border-b text-sm font-medium"
+              className="size-full border-b font-semibold"
               key={item.id}
               order={i}
             >
               <Link
-                className="block px-6 py-2"
+                className="block px-6 py-2.5"
                 href={item.href}
                 title={item.label}
               >
@@ -113,7 +113,7 @@ function DesktopNavigation() {
   return (
     <ul
       id="navbar-desktop-navigation"
-      className="hidden md:flex items-center gap-0.5 list-none bg-foreground rounded text-background/80 p-0.5"
+      className="hidden md:flex items-center gap-0.5 list-none  p-0.5"
     >
       {NAV_LINKS.map((link) => (
         <DesktopNavigationItem
@@ -133,17 +133,17 @@ function DesktopNavigation() {
 }
 export function Navbar() {
   return (
-    <Header className="fixed h-20 top-0 left-0 w-full z-999">
-      <div className="container mx-auto px-8 flex items-center gap-4 justify-between">
+    <Header className="fixed top-2 left-0 w-full z-999 flex justify-center items-center">
+      <div className="container max-w-3xl h-12 bg-sidebar/80 backdrop-blur mx-4 px-4 rounded-xl ring ring-ring/25 shadow-xs flex items-center gap-4 justify-between">
         <NavbarLogo />
 
         <nav className="flex items-center gap-2">
           <DesktopNavigation />
-          <Button variant="secondary" className="rounded z-999" size="sm">
+          <Button variant="outline" className=" z-999" size="sm">
             Book a meeting
           </Button>
           <MobileNavigation />
-          <ModeToggle />
+          <ModeToggle className="ml-2 size-7" />
         </nav>
       </div>
     </Header>

@@ -7,6 +7,7 @@ import {
 import { Button } from '../ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { RatingStars } from '../systaliko-ui/rating-stars';
+import React from 'react';
 
 const TESTIMONIALS = [
   {
@@ -63,7 +64,7 @@ function TestimonialCard({
   avatarUrl?: string;
 }) {
   return (
-    <div className="max-w-md mx-auto bg-card text-card-foreground rounded shadow-2xs ring ring-ring/10 space-y-6 p-8 text-center">
+    <div className="max-w-md mx-auto rounded-md border bg-card/80 backdrop-blur shadow-2xs ring ring-ring/10 space-y-6 p-8 text-center">
       <div className="flex flex-col items-center justify-center gap-2">
         <Avatar className="size-14 brutal-shadow">
           <AvatarImage src={avatarUrl} alt={`Portrait of ${authorName}`} />
@@ -92,7 +93,7 @@ function TestimonialCard({
 }
 export function Testimonials() {
   return (
-    <section>
+    <section className="relative bg-background z-2 border-b shadow-xs">
       <ContainerScrollRotatedCards className="container mx-auto h-[300vh] ">
         <div className="sticky overflow-hidden left-0 top-0 h-screen w-full py-12 grid grid-cols-1 grid-rows-[max-content_100px] items-center justify-center *:col-start-1 ">
           <h1 className="row-start-1 block text-center text-6xl md:text-8xl xl:text-10xl font-extrabold uppercase tracking-wider">

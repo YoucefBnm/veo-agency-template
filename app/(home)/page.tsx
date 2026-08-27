@@ -1,9 +1,10 @@
 import { Navbar } from '@/components/sections/navbar';
 import { Hero } from '@/components/sections/hero';
-import { Services } from '@/components/sections/services';
-import { Team } from '@/components/sections/team';
+import { Values } from '@/components/sections/values';
+import { Cta } from '@/components/sections/cta';
+import { About } from '@/components/sections/about';
 import { Work } from '@/components/sections/work';
-import { Testimonials } from '@/components/sections/testimonials';
+import { Plans } from '@/components/sections/plans';
 import { Footer } from '@/components/sections/footer';
 
 export default function Home() {
@@ -11,10 +12,11 @@ export default function Home() {
     <>
       <Navbar />
       <Hero />
+      <About />
+      <Values />
       <Work />
-      <Services />
-      <Team />
-      <Testimonials />
+      <Plans />
+      <Cta />
       <Footer />
     </>
   );

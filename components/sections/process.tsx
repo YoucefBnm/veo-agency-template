@@ -1,8 +1,12 @@
+'use client';
+import { motion } from 'motion/react';
+
 import {
   ScrollAnimation,
   ScrollScale,
 } from '@/components/systaliko-ui/scroll-animation';
 import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 const PROCESS_PHASES = [
   {
@@ -37,37 +41,26 @@ const PROCESS_PHASES = [
 
 export function Process() {
   return (
-    <section className="relative py-12 px-8">
-      <div className="container mx-auto md:grid md:grid-cols-2 md:gap-12 justify-between">
-        <div className="relative md:sticky md:top-0 md:left-0 h-fit max-h-vh py-6">
-          <ScrollAnimation
-            spacerClass="h-0"
-            className="overflow-hidden md:overflow-visible space-y-4"
-          >
-            <ScrollScale
-              inputRange={[0, 0.2]}
-              scaleRange={[1, 1.8]}
-              className="origin-left py-6 place-content-center"
-            >
-              <h2 className="text-6xl md:text-7xl font-bold">
-                How we <br /> work
-              </h2>
-            </ScrollScale>
-            <Button variant={'secondary'}>Start your project</Button>
-          </ScrollAnimation>
-        </div>
-        <div className="flex flex-col gap-12">
-          {PROCESS_PHASES.map((phase) => (
-            <div className="flex flex-col gap-6" key={phase.id}>
-              <div className="flex ">
-                <h3 className="text-4xl font-bold mr-2">{phase.title}</h3>
-                <span className="font-black text-muted-foreground">
-                  {phase.duration}
-                </span>
+    <section className="">
+      {/* class="framer-8mukyd hidden-isgikf" */}
+      <div className="grid grid-rows-1 grid-cols-12 justify-center gap-3 w-full h-min relative">
+        {/* progress wrap */}
+        <div
+          style={{
+            gridColumn: 'span 12',
+          }}
+          className=" place-self-start sticky w-full top-0 left-0 h-screen overflow-visible"
+        >
+          {/* framer-y46wyr-container */}
+          <motion.div className="size-200 bg-muted relative">
+            {/* framer-bTJ2D framer-11iqsbt framer-v-kuzptj */}
+            <div className="border border-red-500 size-full rounded-full">
+              {/* framer-1g20gsm-container */}
+              <div className="w-200 h-[36px] absolute top-[calc(50%-18px)] left-[calc(50%-400px)]">
+                {/* framer-E4Qq7 framer-MZjhb framer-1gq3se framer-v-1gq3se */}
               </div>
-              <p className="">{phase.description}</p>
             </div>
-          ))}
+          </motion.div>
         </div>
       </div>
     </section>

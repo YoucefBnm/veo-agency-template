@@ -46,7 +46,7 @@ function CtaMedia() {
       <div className="overflow-hidden rounded-md">
         <img src="/bg-noise.png" alt="texture" width={720} height={554} />
       </div>
-      <FloatingElementItem intensity={5} className="-rotate-5">
+      <FloatingElementItem intensity={5} className="-rotate-3">
         <img
           src="/showcase-support.png"
           alt="consumer support"

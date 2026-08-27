@@ -8,12 +8,14 @@ import { Footer } from '@/components/sections/footer';
 import { Process } from '@/components/sections/process';
 import { Values } from '@/components/sections/values';
 import { Cta } from '@/components/sections/cta';
+import { Showcase } from '@/components/sections/showcase';
 
 export default function Home() {
   return (
     <>
       <Navbar />
       <Hero />
+      <Showcase />
       <Values />
       <Cta />
     </>

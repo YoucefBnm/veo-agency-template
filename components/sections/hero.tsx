@@ -56,7 +56,9 @@ function HeroText() {
       initial="hidden"
       animate="visible"
     >
-      <MotionConfig transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}>
+      <MotionConfig
+        transition={{ type: 'spring', visualDuration: 0.32, bounce: 0.1 }}
+      >
         <motion.h1
           className="text-4xl max-w-[22ch] mx-auto text-balance font-extrabold"
           variants={animationVariants}

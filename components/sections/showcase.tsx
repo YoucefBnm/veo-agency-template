@@ -32,7 +32,7 @@ function HeadingLg({
     <motion.h1
       {...props}
       className={cn(
-        'text-7xl md:text-8xl font-extrabold uppercase origin-bottom-left whitespace-nowrap',
+        'text-6xl xl:text-7xl font-extrabold uppercase origin-bottom-left whitespace-nowrap',
         className,
       )}
       {...props}
@@ -62,8 +62,8 @@ export function ShowcaseDesktop() {
   const skewVelocity = useTransform(smoothVelocity, [0, 1], [15, -25]);
   const reversSkeyVelocity = useTransform(smoothVelocity, [0, 1], [-15, 25]);
 
-  const translateX = useTransform(scrollYProgress, [0, 1], [0, -2000]);
-  const reversTranslateX = useTransform(scrollYProgress, [0, 1], [0, 2000]);
+  const translateX = useTransform(scrollYProgress, [0, 1], [0, -800]);
+  const reversTranslateX = useTransform(scrollYProgress, [0, 1], [0, 800]);
 
   const smoothTranslateX = useSpring(translateX, {
     mass: 3,
@@ -72,7 +72,7 @@ export function ShowcaseDesktop() {
   });
 
   return (
-    <Parallax ref={ref} className="h-[2000px] relative">
+    <Parallax ref={ref} className="h-375 relative">
       <div className="sticky top-0 left-0 py-4 min-h-screen space-y-12 place-content-center overflow-hidden">
         {TITLES.map((title, index) => (
           <HeadingLg
@@ -109,12 +109,12 @@ function ShowcaseMobile() {
       <div className="flex gap-2 items-center">
         <div className="space-y-4">
           {TITLES.map((title) => (
-            <h1
+            <h2
               key={title}
-              className="even:text-muted-foreground font-extrabold uppercase text-2xl"
+              className="even:text-muted-foreground font-bold text-2xl"
             >
               {title}
-            </h1>
+            </h2>
           ))}
         </div>
 

@@ -78,22 +78,22 @@ function DesktopNavigationItem({
 
 function MobileNavigation() {
   return (
-    <AnimatedMenu className="block md:hidden">
+    <AnimatedMenu className="mx-2 block md:hidden">
       <AnimatedMenuButton>
         <AnimatedMenuButtonToggleIcon />
         <AnimatedMenuButtonLabel className="font-semibold" />
       </AnimatedMenuButton>
 
-      <AnimatedMenuList className="bg-popover ring ring-ring/10 shadow-2xs rounded text-popover-foreground flex items-center justify-center">
+      <AnimatedMenuList className="bg-popover ring-2 ring-border shadow-2xs rounded-md text-popover-foreground flex items-center justify-center">
         <div className="*:transition-blur *:duration-300 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none w-full ">
           {NAV_LINKS.map((item, i) => (
             <AnimatedMenuItem
-              className="size-full border-b text-sm font-medium"
+              className="size-full border-b font-semibold"
               key={item.id}
               order={i}
             >
               <Link
-                className="block px-6 py-2"
+                className="block px-6 py-2.5"
                 href={item.href}
                 title={item.label}
               >

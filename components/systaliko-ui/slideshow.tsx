@@ -1,0 +1,107 @@
+'use client';
+
+import * as React from 'react';
+import { HTMLMotionProps, motion } from 'motion/react';
+import { cn } from '@/lib/utils';
+
+interface SlideshowContextValue {
+  activeSlide: number;
+  changeSlide: (index: number) => void;
+}
+
+const SlideshowContext = React.createContext<SlideshowContextValue | undefined>(
+  undefined,
+);
+function useSlideshowContext() {
+  const context = React.useContext(SlideshowContext);
+  if (context === undefined) {
+    throw new Error(
+      'useSlideshowContext must be used within a SlideshowProvider',
+    );
+  }
+  return context;
+}
+
+export const Slideshow = ({
+  children,
+  ...props
+}: React.ComponentProps<'div'>) => {
+  const [activeSlide, setActiveSlide] = React.useState<number>(0);
+  const changeSlide = React.useCallback(
+    (index: number) => setActiveSlide(index),
+    [setActiveSlide],
+  );
+  return (
+    <SlideshowContext.Provider value={{ activeSlide, changeSlide }}>
+      <div {...props}>{children}</div>
+    </SlideshowContext.Provider>
+  );
+};
+
+export const SlideshowIndicator = ({
+  index,
+  className,
+  style,
+  ...props
+}: React.ComponentProps<'div'> & { index: number }) => {
+  const { activeSlide, changeSlide } = useSlideshowContext();
+  const isActive = activeSlide === index;
+  const handleMouse = () => changeSlide(index);
+  return (
+    <div
+      className={cn(
+        'relative transition-opacity duration-300 ease-out origin-bottom overflow-hidden',
+        className,
+      )}
+      style={{
+        opacity: isActive ? 1 : 0.5,
+        ...style,
+      }}
+      onMouseEnter={handleMouse}
+      {...props}
+    />
+  );
+};
+
+export const clipPathVariants = {
+  visible: {
+    clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+  },
+  hidden: {
+    clipPath: 'polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)',
+  },
+};
+export const SlideshowImageContainer = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => {
+  return (
+    <div
+      ref={ref}
+      className={cn(
+        'grid  overflow-hidden *:col-start-1 *:col-end-1 *:row-start-1 *:row-end-1 *:size-full',
+        className,
+      )}
+      {...props}
+    />
+  );
+});
+SlideshowImageContainer.displayName = 'SlideshowImageContainer';
+
+export const SlideshowImageWrap = React.forwardRef<
+  HTMLDivElement,
+  HTMLMotionProps<'div'> & { index: number }
+>(({ index, className, ...props }, ref) => {
+  const { activeSlide } = useSlideshowContext();
+  return (
+    <motion.div
+      className={cn('inline-block align-middle', className)}
+      transition={{ ease: [0.33, 1, 0.68, 1], duration: 0.8 }}
+      variants={clipPathVariants}
+      animate={activeSlide === index ? 'visible' : 'hidden'}
+      ref={ref}
+      {...props}
+    />
+  );
+});
+SlideshowImageWrap.displayName = 'SlideshowImageWrap';

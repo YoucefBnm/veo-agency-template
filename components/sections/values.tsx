@@ -51,7 +51,7 @@ function ValueCard({
   description,
 }: Omit<ValueT, 'outputRange' | 'inputRange'>) {
   return (
-    <div className="max-w-xs space-y-8 p-8 rounded-sm border bg-card/80 backdrop-blur text-card-foreground text-center flex flex-col justify-center items-center">
+    <div className="max-w-xs space-y-8 p-8 rounded-md border bg-card/80 backdrop-blur text-card-foreground text-center flex flex-col justify-center items-center">
       <div className="size-16">
         <img src={imageUrl} alt={title} width={80} height={80} />
       </div>
